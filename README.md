@@ -6,6 +6,10 @@ A pocket scrapbook for low-pop Rust servers: a per-player CUI book that stores p
 
 **Status: v0.5.1** (first public release; uMod-readiness pass in 0.5.0: permissions, localized admin replies, MIT license). Core loop (store / page / take a copy) and Remove are playtested live; the Papers section (v0.4.0) and `sb.gc` are deployed but not yet exercised in anger.
 
+<!-- lpl:links -->
+**[Download v0.5.1](https://github.com/lowpoplabs/Scrapbook/releases/latest)** · **Flyer:** [web](https://lowpoplabs.github.io/flyers/Scrapbook.html) / [PDF](Scrapbook-Flyer.pdf) · **[Changelog](CHANGELOG.md)** · **[Ko-fi](https://ko-fi.com/lowpoplabs)**
+<!-- /lpl:links -->
+
 ## What it does
 
 - **Prints** — any vanilla `photo` item with an image: camera shots, plugin-made pamphlets, gifted photos. The JPG is copied out of the game's FileStorage into the plugin's own pool before the item is consumed, so the picture outlives the paper.

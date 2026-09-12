@@ -49,7 +49,7 @@ Release history: [CHANGELOG.md](CHANGELOG.md). Player-facing one-pager: [flyer](
 
 ## Support
 
-Provided as-is. Bug reports welcome via GitHub Issues. No Discord, no custom work, no promises on turnaround. If it saved you time or your players like it:
+Provided as-is. Bug reports welcome via GitHub Issues. No Discord, no custom work, no promises on turnaround. If it saved you time or you and your players enjoy it:
 
 [![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/lowpoplabs)
 

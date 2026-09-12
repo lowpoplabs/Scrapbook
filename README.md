@@ -49,7 +49,7 @@ All player-facing text is editable via the Lang API (`oxide/lang/en/Scrapbook.js
 
 ## For developers
 
-Release history: [CHANGELOG.md](CHANGELOG.md). Player-facing one-pager: [flyer](https://lowpoplabs.github.io/flyers/Scrapbook.html) ([PDF](Scrapbook-Flyer.pdf)). Single-file plugin, no build step: edit `Scrapbook.cs`, drop it in `oxide/plugins/`, Oxide compiles it on load.
+Single-file plugin, no build step: edit `Scrapbook.cs`, drop it in `oxide/plugins/`, Oxide compiles it on load.
 
 ## Support
 

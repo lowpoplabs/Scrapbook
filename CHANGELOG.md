@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.2] — 2026-11-09
+
+Compatibility with the November 2026 Rust update — no gameplay changes.
+
+### Fixed
+- Compile failure on the new game build: `FileStorage` is now keyed by entity and part instead of crc and type. Prints are read from the photo's part 0, and book images are served with `StoreByCrc` and removed by the same crc.
+
 ## [0.5.1] — 2026-09-12
 
 First public release on GitHub — no gameplay changes.

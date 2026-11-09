@@ -8,7 +8,7 @@ using UnityEngine;  // ArgEx (arg.Player()) lives in the UnityEngine namespace
 
 namespace Oxide.Plugins
 {
-    [Info("Scrapbook", "LowPopLabs", "0.5.1")]
+    [Info("Scrapbook", "LowPopLabs", "0.5.2")]
     [Description("A pocket scrapbook: collect pamphlet prints, photos and written paper notes into a CUI book, page through them, and pull out fresh copies for frames or friends.")]
     public class Scrapbook : RustPlugin
     {
@@ -226,7 +226,7 @@ namespace Oxide.Plugins
             var community = CommunityEntity.ServerInstance;
             if (community != null && community.net != null)
                 foreach (var crc in _servedCrc.Values)
-                    FileStorage.server.Remove(crc, FileStorage.Type.png, community.net.ID);
+                    FileStorage.server.Remove(community.net.ID, crc);
             foreach (var userId in _books.Keys) SaveBook(userId);
         }
 
@@ -256,7 +256,7 @@ namespace Oxide.Plugins
         }
 
         private static byte[] BytesOf(PhotoEntity photo) =>
-            FileStorage.server.Get(photo.ImageCrc, FileStorage.Type.jpg, photo.net.ID);
+            FileStorage.server.Get(photo.net.ID, 0uL, photo.ImageCrc);
 
         // Everything in main + belt that is a photo item with an actual image on it.
         private static List<Item> StorablePrints(BasePlayer player)
@@ -302,7 +302,9 @@ namespace Oxide.Plugins
 
         // CUI can only show images that live in FileStorage under CommunityEntity's
         // net id. Push each print at most once per boot; RawImage's png field takes
-        // the crc, and the client decodes jpg bytes just fine.
+        // the crc, and the client decodes jpg bytes just fine. StoreByCrc files each
+        // image under part = crc, so prints don't overwrite each other in the one
+        // entity's slots; removing one is Remove(net id, crc).
         private uint ServedCrcOf(string hash)
         {
             uint crc;
@@ -311,7 +313,7 @@ namespace Oxide.Plugins
             if (community == null || community.net == null) return 0;
             var bytes = LoadImage(hash);
             if (bytes == null) return 0;
-            crc = FileStorage.server.Store(bytes, FileStorage.Type.png, community.net.ID);
+            crc = FileStorage.server.StoreByCrc(community.net.ID, FileStorage.Type.png, bytes);
             _servedCrc[hash] = crc;
             return crc;
         }
@@ -684,7 +686,7 @@ namespace Oxide.Plugins
                     {
                         var community = CommunityEntity.ServerInstance;
                         if (community != null && community.net != null)
-                            FileStorage.server.Remove(crc, FileStorage.Type.png, community.net.ID);
+                            FileStorage.server.Remove(community.net.ID, crc);
                         _servedCrc.Remove(hash);
                     }
                 }

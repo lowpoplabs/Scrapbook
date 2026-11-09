@@ -7,7 +7,7 @@ A pocket scrapbook for low-pop Rust servers: a per-player CUI book that stores p
 **Status: v0.5.2** (updated for the November 2026 Rust build; uMod-readiness pass in 0.5.0: permissions, localized admin replies, MIT license). Core loop (store / page / take a copy) and Remove are playtested live; the Papers section (v0.4.0) and `sb.gc` are deployed but not yet exercised in anger.
 
 <!-- lpl:links -->
-**[Download v0.5.1](https://github.com/lowpoplabs/Scrapbook/releases/latest)** · **Flyer:** [web](https://lowpoplabs.github.io/flyers/Scrapbook.html) / [PDF](Scrapbook-Flyer.pdf) · **[Changelog](CHANGELOG.md)** · **[Ko-fi](https://ko-fi.com/lowpoplabs)**
+**[Download v0.5.2](https://github.com/lowpoplabs/Scrapbook/releases/latest)** · **Flyer:** [web](https://lowpoplabs.github.io/flyers/Scrapbook.html) / [PDF](Scrapbook-Flyer.pdf) · **[Changelog](CHANGELOG.md)** · **[Ko-fi](https://ko-fi.com/lowpoplabs)**
 <!-- /lpl:links -->
 
 ## What it does
